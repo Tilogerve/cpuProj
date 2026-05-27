@@ -19,7 +19,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-white dark:bg-[#121212]">
         <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#121212]/80 backdrop-blur">
-          <div className="w-full flex-1 px-6 sm:px-12 md:px-16 lg:px-24 mx-auto h-16 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 md:px-16 lg:px-24 h-16 flex items-center justify-between">
             <Link href="/" className="text-xl sm:text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               On-CINE
             </Link>
@@ -30,10 +30,13 @@ export default function RootLayout({
               <Link href="/location" className="text-sm sm:text-base font-bold text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
                 내 주변 찾기
               </Link>
+              <Link href="/guestbook" className="text-sm sm:text-base font-bold text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
+                방명록
+              </Link>
             </nav>
           </div>
         </header>
-        <div className="w-full flex-1 px-6 sm:px-12 md:px-16 lg:px-24 pt-8">
+        <div className="max-w-7xl mx-auto w-full px-6 sm:px-12 md:px-16 lg:px-24 pt-8 flex-1 self-center">
           {children}
         </div>
       </body>
