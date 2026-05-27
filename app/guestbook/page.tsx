@@ -197,7 +197,7 @@ export default function GuestbookPage() {
   }
 
   return (
-    <main className="w-full pb-24 pt-2 fade-in">
+    <main className="w-full pb-16 sm:pb-24 pt-2 fade-in">
       {/* Toast Notification */}
       {showSuccessToast && (
         <div className="fixed bottom-8 right-8 z-50 flex items-center bg-gray-950 dark:bg-white text-white dark:text-gray-900 px-6 py-4 rounded-2xl shadow-2xl transition-all transform animate-bounce">
@@ -207,24 +207,24 @@ export default function GuestbookPage() {
       )}
 
       {/* Hero section */}
-      <section className="mb-10 pb-6 border-b border-gray-150 dark:border-gray-800/80 shrink-0">
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-3">
+      <section className="mb-6 sm:mb-10 pb-4 sm:pb-6 border-b border-gray-150 dark:border-gray-800/80 shrink-0">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 sm:mb-3">
           영화 방명록 🍿
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base leading-relaxed">
+        <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed">
           온씨네 서비스에 대해 의견을 남기거나 주변 영화관에서의 즐거운 경험을 공유해주세요.
         </p>
       </section>
 
       {/* Grid Layout: Forms on left (or top on small screens), Feed on right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-start">
         {/* Left Side: Writing Form */}
-        <section className="lg:col-span-5 lg:sticky lg:top-24 bg-white dark:bg-[#1a1a1a] p-6 sm:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl shadow-gray-100/40 dark:shadow-none transition-all">
-          <h2 className="text-xl font-extrabold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+        <section className="lg:col-span-5 lg:sticky lg:top-24 bg-white dark:bg-[#1a1a1a] p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl shadow-gray-100/40 dark:shadow-none transition-all">
+          <h2 className="text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
             ✍️ 방문 후기 남기기
           </h2>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-6">
             {/* Author name input */}
             <div>
               <label htmlFor="name-input" className="block text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">
@@ -247,7 +247,7 @@ export default function GuestbookPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2.5">
                 최애 영화관 뱃지
               </label>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {(["None", "CGV", "MegaBox", "Lotte"] as const).map((b) => {
                   const isActive = badge === b;
                   let activeClass = "bg-gray-900 text-white border-gray-900 dark:bg-white dark:text-gray-900 dark:border-white shadow-sm";
@@ -262,8 +262,8 @@ export default function GuestbookPage() {
                       type="button"
                       onClick={() => setBadge(b)}
                       className={`py-2 px-1 text-xs sm:text-sm font-bold border rounded-lg transition-all ${isActive
-                          ? activeClass
-                          : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                        ? activeClass
+                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
                         }`}
                     >
                       {b === "None" ? "없음" : b === "Lotte" ? "롯데시네마" : b === "MegaBox" ? "메가박스" : b}
@@ -285,8 +285,8 @@ export default function GuestbookPage() {
                     type="button"
                     onClick={() => setEmoji(em)}
                     className={`w-10 h-10 flex items-center justify-center text-xl rounded-full border transition-all ${emoji === em
-                        ? "bg-blue-50 dark:bg-blue-900/40 border-blue-500 transform scale-110 shadow-md"
-                        : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      ? "bg-blue-50 dark:bg-blue-900/40 border-blue-500 transform scale-110 shadow-md"
+                      : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
                       }`}
                   >
                     {em}
@@ -300,7 +300,7 @@ export default function GuestbookPage() {
               <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1.5">
                 별점 평가
               </label>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5 sm:gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
@@ -312,9 +312,9 @@ export default function GuestbookPage() {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className={`h-8 w-8 ${star <= (hoverRating ?? rating)
-                          ? "text-yellow-400 fill-yellow-400"
-                          : "text-gray-200 dark:text-gray-600"
+                      className={`h-7 w-7 sm:h-8 sm:w-8 ${star <= (hoverRating ?? rating)
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-gray-200 dark:text-gray-600"
                         }`}
                       fill="none"
                       viewBox="0 0 24 24"
@@ -358,8 +358,8 @@ export default function GuestbookPage() {
               type="submit"
               disabled={isSubmitting || !name.trim() || !message.trim()}
               className={`a11y-btn text-white font-bold py-4 rounded-xl shadow-lg transition-all w-full ${isSubmitting || !name.trim() || !message.trim()
-                  ? "bg-gray-200 dark:bg-gray-800/60 text-gray-400 dark:text-gray-500 cursor-not-allowed shadow-none"
-                  : "bg-blue-600 hover:bg-blue-700 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)]"
+                ? "bg-gray-200 dark:bg-gray-800/60 text-gray-400 dark:text-gray-500 cursor-not-allowed shadow-none"
+                : "bg-blue-600 hover:bg-blue-700 shadow-[0_4px_14px_0_rgba(37,99,235,0.39)]"
                 }`}
             >
               {isSubmitting ? (
@@ -416,9 +416,9 @@ export default function GuestbookPage() {
         </section>
 
         {/* Right Side: Feed List */}
-        <section className="lg:col-span-7 flex flex-col gap-6 w-full">
+        <section className="lg:col-span-7 flex flex-col gap-4 sm:gap-6 w-full">
           {/* Controls: Search */}
-          <div className="bg-white dark:bg-[#1a1a1a] p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md">
+          <div className="bg-white dark:bg-[#1a1a1a] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md">
             {/* Search Input */}
             <div className="relative">
               <input
@@ -441,23 +441,23 @@ export default function GuestbookPage() {
           </div>
 
           {/* Guestbook List Grid */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {filteredEntries.length > 0 ? (
               filteredEntries.map((entry) => (
                 <article
                   key={entry.id}
-                  className={`p-5 rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-150 dark:border-gray-800 shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative group ${getCardBorderStyle(
+                  className={`p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-white dark:bg-[#1a1a1a] border border-gray-150 dark:border-gray-800 shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative group ${getCardBorderStyle(
                     entry.badge
                   )}`}
                 >
                   {/* Top line info */}
-                  <div className="flex justify-between items-start mb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 flex items-center justify-center text-3xl bg-gray-50 dark:bg-gray-800/80 rounded-full border border-gray-100 dark:border-gray-700 shadow-sm shrink-0">
+                  <div className="flex justify-between items-start mb-2 sm:mb-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-2xl sm:text-3xl bg-gray-50 dark:bg-gray-800/80 rounded-full border border-gray-100 dark:border-gray-700 shadow-sm shrink-0">
                         {entry.emoji}
                       </div>
                       <div>
-                        <h4 className="font-extrabold text-gray-900 dark:text-white text-base">
+                        <h4 className="font-extrabold text-gray-900 dark:text-white text-sm sm:text-base">
                           {entry.name}
                         </h4>
                         <time className="text-xs text-gray-400 block mt-0.5">{entry.date}</time>
@@ -497,7 +497,7 @@ export default function GuestbookPage() {
                   </div>
 
                   {/* Rating display */}
-                  <div className="flex items-center gap-0.5 mb-3">
+                  <div className="flex items-center gap-0.5 mb-2 sm:mb-3">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <svg
                         key={s}
@@ -512,7 +512,7 @@ export default function GuestbookPage() {
                   </div>
 
                   {/* Message body */}
-                  <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base break-words whitespace-pre-wrap leading-relaxed mb-4">
+                  <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-base break-words whitespace-pre-wrap leading-relaxed mb-3 sm:mb-4">
                     {entry.message}
                   </p>
 
@@ -541,7 +541,7 @@ export default function GuestbookPage() {
                 </article>
               ))
             ) : (
-              <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-gray-800 p-12 rounded-2xl text-center shadow-md">
+              <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-gray-800 p-8 sm:p-12 rounded-xl sm:rounded-2xl text-center shadow-md">
                 <div className="text-5xl mb-4">🎬</div>
                 <h4 className="font-extrabold text-gray-800 dark:text-white text-lg mb-2">
                   검색된 방명록이 없습니다.

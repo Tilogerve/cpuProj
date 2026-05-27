@@ -16,19 +16,19 @@ export default function BookingPage() {
         <h1 className="a11y-heading mb-6 text-center text-gray-800 dark:text-gray-100">영화 예매하기</h1>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           <button 
-            onClick={(e) => handlePreview(e, "https://cgv.co.kr/cnm/movieBook/cinema", "CGV 극장별 예매")}
+            onClick={(e) => handlePreview(e, "https://cgv.co.kr/cnm/movieBook/cinema", "CGV 극장별 예매 사이트")}
             className="a11y-btn text-white bg-[#ef4444] hover:bg-[#dc2626] shadow-[0_4px_14px_0_rgba(239,68,68,0.39)] text-center h-full min-h-[70px] w-full transition-all"
           >
             CGV 예매하기
           </button>
           <button 
-            onClick={(e) => handlePreview(e, "https://www.megabox.co.kr/booking", "메가박스 극장별 예매 화면")}
+            onClick={(e) => handlePreview(e, "https://www.megabox.co.kr/booking", "메가박스 극장별 예매 사이트")}
             className="a11y-btn text-white bg-[#8b5cf6] hover:bg-[#7c3aed] shadow-[0_4px_14px_0_rgba(139,92,246,0.39)] text-center h-full min-h-[70px] w-full transition-all"
           >
             메가박스 예매하기
           </button>
           <button 
-            onClick={(e) => handlePreview(e, "https://www.lottecinema.co.kr/NLCHS/Ticketing", "롯데시네마 극장별 예매")}
+            onClick={(e) => handlePreview(e, "https://www.lottecinema.co.kr/NLCHS/Ticketing", "롯데시네마 극장별 예매 사이트")}
             className="a11y-btn text-white bg-[#f97316] hover:bg-[#ea580c] shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] text-center h-full min-h-[70px] w-full transition-all"
           >
             롯데시네마 예매하기
